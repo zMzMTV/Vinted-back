@@ -28,10 +28,14 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+app.all("/", (req, res) => {
+  res.json({ message: "welcome" });
+});
+
 app.all("*", (req, res) => {
   res.status(404).json({ message: "Cette route n'existe pas" });
 });
 
-app.listen(3001, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server Started");
 });
