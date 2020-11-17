@@ -5,19 +5,23 @@ const stripe = require("stripe")(
 const router = express.Router();
 
 router.post("/payment", async (req, res) => {
-  const stripeToken = req.fields.stripeToken;
+  try {
+    // Transaction creation
+    const stripeToken = req.fields.stripeToken;
 
-  // Transaction creation
-  const reponse = await stripe.charges.create({
-    amount: req.fields.product_price * 100,
-    currency: "eur",
-    description: req.fields.description,
+    const response = await stripe.charges.create({
+      amount: 2000,
+      currency: "eur",
+      description: "test",
+      // Send token
+      source: stripeToken,
+    });
+    console.log(response);
 
-    // Send token
-    source: stripeToken,
-  });
-
-  res.json(response);
+    res.json(response);
+  } catch (error) {
+    console.log(error.message);
+  }
 });
 
 module.exports = router;
