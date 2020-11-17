@@ -57,8 +57,8 @@ router.get("/offers", async (req, res) => {
         select: "account",
       })
       .sort(sort)
-      .skip((page - 1) * limit) // ignorer les x résultats
-      .limit(limit); // renvoyer y résultats
+      .skip((page - 1) * limit) // ignored the x results
+      .limit(limit); // show y results
 
     // return the number of annonce that match with filters
     const count = await Offer.countDocuments(filters);
