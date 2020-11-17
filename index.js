@@ -13,8 +13,8 @@ const userRoutes = require("./routes/user");
 app.use(userRoutes);
 const offerRoutes = require("./routes/offer");
 app.use(offerRoutes);
-const userRoutes = require("./routes/payment");
-app.use(offerRoutes);
+const paymentRoutes = require("./routes/payment");
+app.use(paymentRoutes);
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
