@@ -88,6 +88,7 @@ router.get("/offer/:id", async (req, res) => {
 
 router.post("/offer/publish", isAuthenticated, async (req, res) => {
   try {
+    console.log(req.fields);
     const newOffer = new Offer({
       product_name: req.fields.title,
       product_description: req.fields.description,

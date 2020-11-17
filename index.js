@@ -9,10 +9,11 @@ const app = express();
 app.use(formidable());
 app.use(cors());
 
-//import des routes
 const userRoutes = require("./routes/user");
 app.use(userRoutes);
 const offerRoutes = require("./routes/offer");
+app.use(offerRoutes);
+const userRoutes = require("./routes/payment");
 app.use(offerRoutes);
 
 mongoose.connect(process.env.MONGODB_URI, {
@@ -21,12 +22,12 @@ mongoose.connect(process.env.MONGODB_URI, {
   useCreateIndex: true,
 });
 
-// Connexion à l'espace de stockage cloudinary
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
+
 app.all("*", (req, res) => {
   res.status(404).json({ message: "Cette route n'existe pas" });
 });

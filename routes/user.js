@@ -12,6 +12,7 @@ const Offer = require("../models/Offer");
 
 router.post("/user/signup", async (req, res) => {
   try {
+    console.log(req.fields);
     // Looking in DB if a user already has the email
     const user = await User.findOne({ email: req.fields.email });
 
