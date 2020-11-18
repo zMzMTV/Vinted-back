@@ -34,7 +34,6 @@ router.post("/user/signup", async (req, res) => {
           account: {
             username: req.fields.username,
             phone: req.fields.phone,
-            avatar: req.files.avatar.secure_url,
           },
         });
         if (req.files.picture) {
