@@ -9,14 +9,15 @@ router.post("/payment", async (req, res) => {
     // Transaction creation
     const stripeToken = req.fields.stripeToken;
 
+    console.log(req.fields);
+
     const response = await stripe.charges.create({
-      amount: req.fields.amount * 100,
+      amount: Number(req.fields.amount) * 100,
       currency: "eur",
       description: req.fields.title,
       // Send token
       source: stripeToken,
     });
-    console.log(response);
 
     res.json(response);
   } catch (error) {
