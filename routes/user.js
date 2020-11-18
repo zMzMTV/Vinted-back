@@ -36,7 +36,7 @@ router.post("/user/signup", async (req, res) => {
             phone: req.fields.phone,
           },
         });
-        if (req.file.picture) {
+        if (req.files.picture) {
           const resultAva = await cloudinary.uploader.upload(
             req.files.picture.path,
             {
