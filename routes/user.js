@@ -36,14 +36,15 @@ router.post("/user/signup", async (req, res) => {
             phone: req.fields.phone,
           },
         });
-
-        const resultAva = await cloudinary.uploader.upload(
-          req.files.picture.path,
-          {
-            folder: `/vinted/User${newUser.id}`,
-          }
-        );
-        newUser.account.avatar = resultAva;
+        if (req.file.picture) {
+          const resultAva = await cloudinary.uploader.upload(
+            req.files.picture.path,
+            {
+              folder: `/vinted/User${newUser.id}`,
+            }
+          );
+          newUser.account.avatar = resultAva;
+        }
 
         // Save in DB
         await newUser.save();
