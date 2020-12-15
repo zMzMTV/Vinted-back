@@ -18,6 +18,8 @@ This a back end project I made to run this [app](https://github.com/zMzMTV/Vinte
 
 - Delete an existant offer
 
+- Payment route using [stripe](https://www.npmjs.com/package/@stripe/react-stripe-js)
+
 # Road Map
 
 I will soon add a route to update a user already in data base.
