@@ -20,10 +20,6 @@ This a back end project I made to run this [app](https://github.com/zMzMTV/Vinte
 
 - Payment route using [stripe](https://www.npmjs.com/package/@stripe/react-stripe-js)
 
-# Road Map
-
-I will soon add a route to update a user already in data base.
-
 # Install
 
 Just run `npm` in your console to install all dependencies and `npx nodemon index.js` to launch.
